@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew & Bean Café</title>
+<meta name="description" content="Brew & Bean Café — specialty coffee, fresh food and good moments.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+:root{--dark:#1d1713;--coffee:#6f452f;--cream:#f7f0e7;--gold:#c89452;--white:#fff;--muted:#74685e}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--dark);background:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{position:fixed;top:0;left:0;width:100%;z-index:20;background:rgba(29,23,19,.9);backdrop-filter:blur(12px);color:#fff}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Playfair Display';font-size:25px}.logo span{color:var(--gold)}
+.navlinks{display:flex;gap:28px;align-items:center}.navlinks a{font-size:14px;opacity:.9}.navlinks a:hover{color:var(--gold)}
+.btn{display:inline-block;padding:12px 21px;border-radius:30px;background:var(--gold);color:#fff;font-weight:700;border:0;cursor:pointer}.btn:hover{filter:brightness(1.08)}
+.menu-btn{display:none;background:none;border:0;color:white;font-size:28px}
+.hero{min-height:100vh;background:linear-gradient(90deg,rgba(20,14,10,.82),rgba(20,14,10,.35)),url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=85') center/cover;display:flex;align-items:center;color:#fff}
+.hero-content{max-width:680px;padding-top:60px}.eyebrow{text-transform:uppercase;letter-spacing:4px;color:#e0b77b;font-size:12px;font-weight:700;margin-bottom:18px}
+h1{font:700 clamp(46px,7vw,82px)/1.02 'Playfair Display';margin-bottom:22px}
+.hero p{font-size:18px;max-width:560px;color:#eee;margin-bottom:30px}.hero-actions{display:flex;gap:14px;flex-wrap:wrap}.btn-outline{padding:11px 21px;border:1px solid rgba(255,255,255,.6);border-radius:30px}
+section{padding:90px 0}.section-head{text-align:center;margin-bottom:45px}.section-head .eyebrow{color:var(--coffee);margin-bottom:8px}.section-head h2{font:700 42px 'Playfair Display'}.section-head p{color:var(--muted);max-width:620px;margin:10px auto}
+.about{background:var(--cream)}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.about-img{height:480px;border-radius:22px;background:url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=85') center/cover}
+.about-copy h2{font:700 43px 'Playfair Display';line-height:1.15;margin-bottom:18px}.about-copy p{color:var(--muted);margin-bottom:16px}.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:25px 0}.checks div{font-weight:600}.checks div:before{content:'✓';color:var(--gold);margin-right:8px}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:#fff;border:1px solid #eee;border-radius:18px;padding:25px;box-shadow:0 10px 35px rgba(40,25,15,.06)}.card-top{display:flex;justify-content:space-between;gap:15px}.card h3{font:700 21px 'Playfair Display'}.price{color:var(--coffee);font-weight:700;white-space:nowrap}.card p{color:var(--muted);font-size:14px;margin-top:8px}.tag{display:inline-block;background:#f0e4d5;color:var(--coffee);font-size:11px;padding:4px 9px;border-radius:20px;margin-top:15px}
+.gallery{background:var(--dark);color:#fff}.gallery .section-head p{color:#c9c0b9}.gallery .section-head .eyebrow{color:#d6a968}.gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:12px}.gallery-item{border-radius:15px;overflow:hidden;background-size:cover;background-position:center}.g1{grid-row:span 2;background-image:url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=85')}.g2{background-image:url('https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=800&q=85')}.g3{background-image:url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=85')}.g4{background-image:url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=85')}.g5{background-image:url('https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=85')}
+.reviews{background:var(--cream)}.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.review{background:#fff;padding:27px;border-radius:18px}.stars{letter-spacing:3px;color:var(--gold);margin-bottom:12px}.review p{color:var(--muted);font-style:italic}.review strong{display:block;margin-top:18px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}.contact-info h2{font:700 42px 'Playfair Display';margin-bottom:15px}.contact-info p{color:var(--muted);margin-bottom:25px}.info{display:grid;gap:16px}.info b{display:block}.info span{color:var(--muted)}
+form{background:var(--cream);padding:30px;border-radius:22px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{margin-bottom:14px}.field label{font-size:13px;font-weight:700;display:block;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid #ddd3c9;border-radius:10px;padding:12px;background:#fff;font:inherit;outline:none}.field textarea{height:100px;resize:vertical}
+footer{background:var(--dark);color:#ddd;padding:35px 0}.footer{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer p{color:#9f958e;font-size:14px}
+.toast{position:fixed;right:20px;bottom:20px;background:var(--dark);color:#fff;padding:14px 20px;border-radius:10px;display:none;z-index:50}
+@media(max-width:800px){.navlinks{display:none;position:absolute;top:72px;left:0;width:100%;background:var(--dark);padding:20px;flex-direction:column}.navlinks.open{display:flex}.menu-btn{display:block}.about-grid,.contact-grid{grid-template-columns:1fr}.about-img{height:340px}.menu-grid,.review-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px 180px}.g1{grid-row:span 2}.g5{grid-column:span 2}.section-head h2,.about-copy h2,.contact-info h2{font-size:34px}.form-row{grid-template-columns:1fr}.footer{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<header><div class="container nav">
+<a class="logo" href="#home">Brew <span>&</span> Bean</a>
+<button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+<nav class="navlinks" id="navlinks"><a href="#home">Home</a><a href="#about">About</a><a href="#menu">Menu</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a><a class="btn" href="#contact">Reserve a Table</a></nav>
+</div></header>
+
+<main>
+<section class="hero" id="home"><div class="container hero-content">
+<div class="eyebrow">Specialty Coffee • Fresh Food • Good Moments</div>
+<h1>Your daily cup of happiness.</h1>
+<p>Slow mornings, great conversations and carefully crafted coffee. Welcome to your new favorite neighborhood café.</p>
+<div class="hero-actions"><a class="btn" href="#menu">Explore Our Menu</a><a class="btn-outline" href="#contact">Book a Table</a></div>
+</div></section>
+
+<section class="about" id="about"><div class="container about-grid">
+<div class="about-img"></div><div class="about-copy"><div class="eyebrow">Our Story</div><h2>Made with passion, served with warmth.</h2>
+<p>At Brew & Bean, we believe a café should feel like your favorite place to pause. We roast with care, cook fresh every day, and welcome everyone like family.</p>
+<p>From your first morning espresso to an evening dessert, every detail is made to turn ordinary moments into memorable ones.</p>
+<div class="checks"><div>Freshly roasted coffee</div><div>Homemade desserts</div><div>Cozy atmosphere</div><div>Friendly service</div></div>
+<a class="btn" href="#contact">Visit Us</a></div></div></section>
+
+<section id="menu"><div class="container"><div class="section-head"><div class="eyebrow">Our Menu</div><h2>Favorites worth coming back for.</h2><p>Simple ingredients, bold flavors and café classics made fresh.</p></div>
+<div class="menu-grid">
+<div class="card"><div class="card-top"><h3>Classic Cappuccino</h3><span class="price">₹160</span></div><p>Rich espresso, silky steamed milk and a soft layer of foam.</p><span class="tag">Bestseller</span></div>
+<div class="card"><div class="card-top"><h3>Hazelnut Latte</h3><span class="price">₹190</span></div><p>Espresso, creamy milk and roasted hazelnut sweetness.</p><span class="tag">Popular</span></div>
+<div class="card"><div class="card-top"><h3>Cold Coffee</h3><span class="price">₹180</span></div><p>Chilled, creamy and blended with our signature coffee.</p><span class="tag">Chilled</span></div>
+<div class="card"><div class="card-top"><h3>Paneer Sandwich</h3><span class="price">₹220</span></div><p>Spiced paneer, fresh vegetables and toasted artisan bread.</p><span class="tag">Fresh</span></div>
+<div class="card"><div class="card-top"><h3>Chocolate Croissant</h3><span class="price">₹150</span></div><p>Buttery, flaky pastry filled with smooth chocolate.</p><span class="tag">Sweet</span></div>
+<div class="card"><div class="card-top"><h3>Cheesecake Slice</h3><span class="price">₹210</span></div><p>Creamy baked cheesecake with a delicate biscuit base.</p><span class="tag">Dessert</span></div>
+</div></div></section>
+
+<section class="gallery" id="gallery"><div class="container"><div class="section-head"><div class="eyebrow">Inside Brew & Bean</div><h2>A place to slow down.</h2><p>Come for the coffee. Stay for the atmosphere.</p></div>
+<div class="gallery-grid"><div class="gallery-item g1"></div><div class="gallery-item g2"></div><div class="gallery-item g3"></div><div class="gallery-item g4"></div><div class="gallery-item g5"></div></div></div></section>
+
+<section class="reviews"><div class="container"><div class="section-head"><div class="eyebrow">Guest Love</div><h2>What our guests say.</h2></div>
+<div class="review-grid"><div class="review"><div class="stars">★★★★★</div><p>“The coffee is excellent, the ambience is beautiful, and the staff make you feel instantly at home.”</p><strong>— Riya S.</strong></div>
+<div class="review"><div class="stars">★★★★★</div><p>“Perfect place for a relaxed breakfast or an evening catch-up. The hazelnut latte is a must!”</p><strong>— Arjun P.</strong></div>
+<div class="review"><div class="stars">★★★★★</div><p>“Cozy, clean and genuinely delicious. This has become my weekend café.”</p><strong>— Neha K.</strong></div></div></div></section>
+
+<section id="contact"><div class="container contact-grid">
+<div class="contact-info"><div class="eyebrow">Come Say Hello</div><h2>Your table is waiting.</h2><p>Drop by for coffee, conversation and something delicious. We’d love to have you.</p>
+<div class="info"><div><b>📍 Address</b><span>123 Café Street, Pune, Maharashtra</span></div><div><b>🕐 Opening Hours</b><span>Mon–Sun: 8:00 AM – 11:00 PM</span></div><div><b>📞 Phone</b><span>+91 98765 43210</span></div><div><b>✉️ Email</b><span>hello@brewandbean.com</span></div></div></div>
+<form onsubmit="reserve(event)"><h3 style="font:700 27px 'Playfair Display';margin-bottom:18px">Reserve a Table</h3>
+<div class="form-row"><div class="field"><label>Name</label><input required placeholder="Your name"></div><div class="field"><label>Guests</label><select><option>2 Guests</option><option>3 Guests</option><option>4 Guests</option><option>5+ Guests</option></select></div></div>
+<div class="form-row"><div class="field"><label>Date</label><input type="date" required></div><div class="field"><label>Time</label><input type="time" required></div></div>
+<div class="field"><label>Message</label><textarea placeholder="Any special request?"></textarea></div>
+<button class="btn" type="submit">Request Reservation</button></form>
+</div></section>
+</main>
+<footer><div class="container footer"><div class="logo">Brew <span>&</span> Bean</div><p>© 2026 Brew & Bean Café. Made for good moments.</p><p>Instagram • Facebook</p></div></footer>
+<div class="toast" id="toast">Reservation request received! We’ll contact you shortly.</div>
+<script>
+function toggleMenu(){document.getElementById('navlinks').classList.toggle('open')}
+document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+function reserve(e){e.preventDefault();const t=document.getElementById('toast');t.style.display='block';setTimeout(()=>t.style.display='none',3500);e.target.reset()}
+</script>
+</body>
+</html>
